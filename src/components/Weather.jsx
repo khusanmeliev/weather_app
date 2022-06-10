@@ -9,7 +9,7 @@ function Weather() {
   const getWeather = (event) => {
     if (event.key == "Enter") {
       fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${apiKey}`
       )
         .then((responese) => responese.json())
         .then((data) => setWeatherData(data));
@@ -33,7 +33,7 @@ function Weather() {
       ) : (
         <div>
           <p className="city">{weatherData.name}</p>
-          <p className="temp">{Math.round(weatherData.main.temp)}°F</p>
+          <p className="temp">{Math.round(weatherData.main.temp)}°C</p>
           <p className="weather">{weatherData.weather[0].main}</p>
         </div>
       )}
